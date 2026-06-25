@@ -32,6 +32,17 @@ except Exception as e:
     print(f"Warning: AIService initialization failed. Please set credentials in .env. Error: {str(e)}")
     ai_service = None
 
+@app.get("/")
+def read_root():
+    """
+    Root endpoint returning a welcome message.
+    """
+    return {
+        "message": "Welcome to the AI Resume Parser & Career Roadmapper API!",
+        "documentation": "/docs",
+        "health": "/health"
+    }
+
 @app.get("/health")
 def health_check():
     """

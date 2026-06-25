@@ -33,9 +33,9 @@ st.markdown(
         font-family: 'Outfit', sans-serif;
     }
     
-    /* Elegant Title Banner */
+    /* Elegant Title Banner (Bright corporate blue gradient) */
     .title-banner {
-        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        background: linear-gradient(135deg, #008be5 0%, #0c609c 100%);
         color: white;
         padding: 2.5rem;
         border-radius: 16px;
@@ -68,14 +68,14 @@ st.markdown(
         width: 160px;
         height: 160px;
         margin: 0 auto 1.5rem auto;
-        border: 8px solid #2a5298;
+        border: 8px solid #008be5;
         box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
     
     .score-value {
         font-size: 3rem;
         font-weight: 800;
-        color: #1e3c72;
+        color: #008be5;
     }
     
     .score-label {
@@ -113,7 +113,7 @@ st.markdown(
     
     /* Timeline styling */
     .timeline-item {
-        border-left: 4px solid #2a5298;
+        border-left: 4px solid #008be5;
         padding-left: 1.5rem;
         padding-bottom: 2rem;
         position: relative;
@@ -125,7 +125,7 @@ st.markdown(
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background-color: #2a5298;
+        background-color: #008be5;
         left: -10px;
         top: 4px;
         border: 3px solid white;
@@ -134,7 +134,7 @@ st.markdown(
     .timeline-month {
         font-weight: 800;
         font-size: 1.3rem;
-        color: #1e3c72;
+        color: #0c609c;
         margin-bottom: 0.2rem;
     }
     
@@ -153,7 +153,40 @@ st.markdown(
         font-style: italic;
         color: #5f6368;
         margin-top: 0.8rem;
-        border-left: 3px solid #1a73e8;
+        border-left: 3px solid #008be5;
+    }
+
+    /* Style override for Streamlit buttons */
+    div.stButton > button {
+        background-color: #008be5 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.6rem 1.2rem !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+    }
+    div.stButton > button:hover {
+        background-color: #0c609c !important;
+        color: white !important;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* Download button specific override */
+    div.stDownloadButton > button {
+        background-color: #008be5 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.6rem 1.2rem !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+    }
+    div.stDownloadButton > button:hover {
+        background-color: #0c609c !important;
+        color: white !important;
     }
     </style>
     """,

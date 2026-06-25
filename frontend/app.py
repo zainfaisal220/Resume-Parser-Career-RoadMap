@@ -29,94 +29,148 @@ st.markdown(
     /* Premium font style */
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
     
-    html, body, [class*="css"] {
+    /* Fade-in animation definition */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Pulse glow animation definition */
+    @keyframes neonGlow {
+        0% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.15); }
+        50% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.45); }
+        100% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.15); }
+    }
+
+    /* Force dark background and white/pale text colors */
+    .stApp {
+        background-color: #070b13 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Headers formatting */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+        color: #ffffff !important;
         font-family: 'Outfit', sans-serif;
     }
     
-    /* Elegant Title Banner (Bright corporate blue gradient) */
+    /* Regular text styling */
+    .stApp p, .stApp span, .stApp label, .stApp li {
+        color: #94a3b8 !important;
+        font-family: 'Outfit', sans-serif;
+    }
+    
+    /* Sidebar override to dark theme with subtle border */
+    [data-testid="stSidebar"] {
+        background-color: #0a0f1d !important;
+        border-right: 1px solid rgba(0, 242, 254, 0.15) !important;
+    }
+
+    /* Elegant Title Banner (Dark background with glowing neon cyan borders) */
     .title-banner {
-        background: linear-gradient(135deg, #008be5 0%, #0c609c 100%);
+        background: linear-gradient(135deg, #0f172a 0%, #070b13 100%);
+        border: 1px solid rgba(0, 242, 254, 0.25);
         color: white;
         padding: 2.5rem;
         border-radius: 16px;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 20px rgba(0, 242, 254, 0.08);
+        animation: fadeIn 0.8s ease-out;
     }
     
     .title-banner h1 {
         font-weight: 800;
         font-size: 2.8rem;
         margin-bottom: 0.5rem;
-        color: white !important;
+        color: #00f2fe !important;
+        text-shadow: 0 0 15px rgba(0, 242, 254, 0.35);
     }
     
     .title-banner p {
         font-size: 1.2rem;
         opacity: 0.9;
         margin: 0;
+        color: #94a3b8 !important;
     }
     
-    /* Metrics / Match Score Circle */
+    /* Metrics / Match Score Circle with pulse animation */
     .score-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: #f0f4f8;
+        background: #0a0f1d;
         border-radius: 50%;
         width: 160px;
         height: 160px;
         margin: 0 auto 1.5rem auto;
-        border: 8px solid #008be5;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        border: 4px solid #00f2fe;
+        box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        animation: neonGlow 3s infinite ease-in-out;
     }
     
     .score-value {
         font-size: 3rem;
         font-weight: 800;
-        color: #008be5;
+        color: #00f2fe !important;
+        text-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
     }
     
     .score-label {
         font-size: 0.85rem;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: #555;
+        color: #94a3b8 !important;
         font-weight: 600;
     }
     
-    /* Custom cards for strengths and gaps */
+    /* Custom cards for strengths and gaps with hover lift and glowing colors */
     .feature-card {
         padding: 1.5rem;
         border-radius: 12px;
         margin-bottom: 1rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: fadeIn 0.6s ease-out;
+    }
+    .feature-card:hover {
+        transform: translateY(-4px);
     }
     
     .strength-card {
-        background-color: #e6f4ea;
-        border-left: 5px solid #137333;
+        background-color: rgba(16, 185, 129, 0.06) !important;
+        border: 1px solid rgba(16, 185, 129, 0.25) !important;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.05);
+    }
+    .strength-card:hover {
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.18);
+        border-color: rgba(16, 185, 129, 0.5) !important;
     }
     
     .gap-card {
-        background-color: #fce8e6;
-        border-left: 5px solid #c5221f;
+        background-color: rgba(239, 68, 68, 0.06) !important;
+        border: 1px solid rgba(239, 68, 68, 0.25) !important;
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.05);
+    }
+    .gap-card:hover {
+        box-shadow: 0 6px 20px rgba(239, 68, 68, 0.18);
+        border-color: rgba(239, 68, 68, 0.5) !important;
     }
     
     .card-title {
         font-weight: 600;
         font-size: 1.1rem;
         margin-bottom: 0.5rem;
-        color: #202124;
+        color: #ffffff !important;
     }
     
     /* Timeline styling */
     .timeline-item {
-        border-left: 4px solid #008be5;
+        border-left: 4px solid #00f2fe;
         padding-left: 1.5rem;
         padding-bottom: 2rem;
         position: relative;
+        animation: fadeIn 0.7s ease-out;
     }
     
     .timeline-item::before {
@@ -125,68 +179,79 @@ st.markdown(
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background-color: #008be5;
+        background-color: #00f2fe;
         left: -10px;
         top: 4px;
-        border: 3px solid white;
+        border: 3px solid #070b13;
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
     }
     
     .timeline-month {
         font-weight: 800;
         font-size: 1.3rem;
-        color: #0c609c;
+        color: #00f2fe !important;
         margin-bottom: 0.2rem;
+        text-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
     }
     
     .timeline-focus {
         font-weight: 600;
         font-size: 1.1rem;
-        color: #333;
+        color: #ffffff !important;
         margin-bottom: 0.8rem;
     }
     
     .timeline-milestone {
-        background-color: #f1f3f4;
+        background-color: #0a0f1d;
         padding: 0.6rem 1rem;
         border-radius: 8px;
         font-size: 0.9rem;
         font-style: italic;
-        color: #5f6368;
+        color: #94a3b8;
         margin-top: 0.8rem;
-        border-left: 3px solid #008be5;
+        border-left: 3px solid #00f2fe;
+        border: 1px solid rgba(0, 242, 254, 0.15);
     }
 
-    /* Style override for Streamlit buttons */
-    div.stButton > button {
-        background-color: #008be5 !important;
-        color: white !important;
+    /* Style override for Streamlit input controls */
+    .stTextInput input, .stSelectbox [data-baseweb="select"] {
+        background-color: #0a0f1d !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(0, 242, 254, 0.2) !important;
+        border-radius: 8px !important;
+    }
+    .stTextInput input:focus, .stSelectbox [data-baseweb="select"]:focus-within {
+        border-color: #00f2fe !important;
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.25) !important;
+    }
+
+    /* Style override for Streamlit file uploader drop zone */
+    [data-testid="stFileUploaderDropzone"] {
+        background-color: #0a0f1d !important;
+        border: 2px dashed rgba(0, 242, 254, 0.25) !important;
+        border-radius: 8px !important;
+    }
+    [data-testid="stFileUploaderDropzone"]:hover {
+        border-color: #00f2fe !important;
+        background-color: rgba(0, 242, 254, 0.02) !important;
+    }
+
+    /* Style override for Streamlit buttons with neon gradient and glow on hover */
+    div.stButton > button, div.stDownloadButton > button {
+        background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
+        color: #070b13 !important;
         border: none !important;
         border-radius: 8px !important;
         padding: 0.6rem 1.2rem !important;
-        font-weight: 600 !important;
+        font-weight: 800 !important;
         transition: all 0.3s ease !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 0 12px rgba(0, 242, 254, 0.15) !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
-    div.stButton > button:hover {
-        background-color: #0c609c !important;
-        color: white !important;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
-        transform: translateY(-1px) !important;
-    }
-
-    /* Download button specific override */
-    div.stDownloadButton > button {
-        background-color: #008be5 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 8px !important;
-        padding: 0.6rem 1.2rem !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease !important;
-    }
-    div.stDownloadButton > button:hover {
-        background-color: #0c609c !important;
-        color: white !important;
+    div.stButton > button:hover, div.stDownloadButton > button:hover {
+        box-shadow: 0 0 22px rgba(0, 242, 254, 0.5) !important;
+        transform: translateY(-2px) !important;
     }
     </style>
     """,

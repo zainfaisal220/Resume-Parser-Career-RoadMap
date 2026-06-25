@@ -15,9 +15,12 @@ st.set_page_config(
 )
 
 # Read backend URL from environment variables
-BACKEND_HOST = os.getenv("BACKEND_HOST", "127.0.0.1")
-BACKEND_PORT = os.getenv("BACKEND_PORT", "8000")
-BACKEND_URL = f"http://{BACKEND_HOST}:{BACKEND_PORT}"
+BACKEND_URL = os.getenv("BACKEND_URL")
+if not BACKEND_URL:
+    BACKEND_HOST = os.getenv("BACKEND_HOST", "127.0.0.1")
+    BACKEND_PORT = os.getenv("BACKEND_PORT", "8000")
+    BACKEND_URL = f"http://{BACKEND_HOST}:{BACKEND_PORT}"
+
 
 # Modern styling injection
 st.markdown(

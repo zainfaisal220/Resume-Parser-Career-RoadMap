@@ -1,2 +1,20 @@
+[project]
+name = "resume-parser-career-roadmap"
+version = "0.1.0"
+description = "AI Resume Parser & Career Roadmapper API"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "python-multipart",
+    "pypdf",
+    "google-generativeai",
+    "streamlit",
+    "python-dotenv",
+    "requests",
+    "pydantic",
+    "openai",
+    "groq"
+]
+
 [tool.vercel]
 entrypoint = "backend.main:app"

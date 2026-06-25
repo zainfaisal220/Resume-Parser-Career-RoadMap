@@ -2,6 +2,17 @@
 
 This project is an AI-powered Career Coach web application that compares a PDF resume against a target job role to perform a detailed skill gap analysis and generates a personalized step-by-step 6-month career roadmap.
 
+## Screenshots
+
+### 1. Dashboard & Resume Upload
+![Dashboard Upload](docs/images/dashboard_upload.png)
+
+### 2. Skill Gap Analysis & Match Score
+![Skill Gap Analysis](docs/images/skills_analysis.png)
+
+### 3. Personalized 6-Month Roadmap & Action Items
+![Career Roadmap](docs/images/career_roadmap.png)
+
 ## Architecture
 
 The project is structured with a FastAPI backend and a Streamlit frontend:

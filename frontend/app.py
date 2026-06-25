@@ -29,6 +29,10 @@ st.markdown(
     /* Premium font style */
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
     
+    html, body, [class*="css"] {
+        font-family: 'Outfit', sans-serif;
+    }
+    
     /* Fade-in animation definition */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(15px); }
@@ -54,8 +58,8 @@ st.markdown(
         font-family: 'Outfit', sans-serif;
     }
     
-    /* Regular text styling */
-    .stApp p, .stApp span, .stApp label, .stApp li {
+    /* Regular text styling (spans excluded to prevent icon text bug) */
+    .stApp p, .stApp label, .stApp li {
         color: #94a3b8 !important;
         font-family: 'Outfit', sans-serif;
     }

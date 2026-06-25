@@ -14,7 +14,7 @@ def generate_pdf_report(job_role, match_percentage, result):
             # Title
             self.set_font('Helvetica', 'B', 15)
             self.set_text_color(0, 139, 229) # #008be5 (Cyan/Blue)
-            self.cell(0, 10, 'AI Career Coach - Detailed Report', 0, 1, 'C')
+            self.cell(190, 10, 'AI Career Coach - Detailed Report', 0, 1, 'C')
             self.set_draw_color(0, 242, 254) # cyan line
             self.set_line_width(1)
             self.line(10, self.get_y(), 200, self.get_y())
@@ -24,88 +24,89 @@ def generate_pdf_report(job_role, match_percentage, result):
             self.set_y(-15)
             self.set_font('Helvetica', 'I', 8)
             self.set_text_color(128, 128, 128)
-            self.cell(0, 10, f'Page {self.page_no()}', 0, 0, 'C')
+            self.cell(190, 10, f'Page {self.page_no()}', 0, 0, 'C')
 
     pdf = PDFReport()
+    pdf.set_margin(10)
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=15)
     
     # Metadata Title
     pdf.set_font('Helvetica', 'B', 12)
     pdf.set_text_color(0, 0, 0)
-    pdf.cell(0, 8, f"Target Job: {job_role}", 0, 1, 'L')
-    pdf.cell(0, 8, f"Match Score: {match_percentage}%", 0, 1, 'L')
+    pdf.cell(190, 8, f"Target Job: {job_role}", 0, 1, 'L')
+    pdf.cell(190, 8, f"Match Score: {match_percentage}%", 0, 1, 'L')
     pdf.ln(5)
     
     # Summary
     pdf.set_font('Helvetica', 'B', 12)
     pdf.set_text_color(0, 139, 229)
-    pdf.cell(0, 8, "1. Summary of Fit", 0, 1, 'L')
+    pdf.cell(190, 8, "1. Summary of Fit", 0, 1, 'L')
     pdf.set_font('Helvetica', '', 10)
     pdf.set_text_color(50, 50, 50)
-    pdf.multi_cell(0, 5, result["analysis"]["summary"])
+    pdf.multi_cell(190, 5, result["analysis"]["summary"])
     pdf.ln(5)
     
     # Strengths
     pdf.set_font('Helvetica', 'B', 12)
     pdf.set_text_color(0, 139, 229)
-    pdf.cell(0, 8, "2. Key Strengths & Assets", 0, 1, 'L')
+    pdf.cell(190, 8, "2. Key Strengths & Assets", 0, 1, 'L')
     pdf.set_font('Helvetica', '', 10)
     pdf.set_text_color(50, 50, 50)
     for strength in result["analysis"]["strengths"]:
-        pdf.multi_cell(0, 5, f"- {strength}")
+        pdf.multi_cell(190, 5, f"- {strength}")
     pdf.ln(5)
     
     # Skill Gaps
     pdf.set_font('Helvetica', 'B', 12)
     pdf.set_text_color(220, 53, 69) # Red color for gaps
-    pdf.cell(0, 8, "3. Identified Skill Gaps", 0, 1, 'L')
+    pdf.cell(190, 8, "3. Identified Skill Gaps", 0, 1, 'L')
     pdf.set_font('Helvetica', '', 10)
     pdf.set_text_color(50, 50, 50)
     for gap in result["analysis"]["gaps"]:
-        pdf.multi_cell(0, 5, f"- {gap}")
+        pdf.multi_cell(190, 5, f"- {gap}")
     pdf.ln(5)
     
     # Certifications
     pdf.set_font('Helvetica', 'B', 12)
     pdf.set_text_color(0, 139, 229)
-    pdf.cell(0, 8, "4. Recommended Certifications & Courses", 0, 1, 'L')
+    pdf.cell(190, 8, "4. Recommended Certifications & Courses", 0, 1, 'L')
     pdf.set_font('Helvetica', '', 10)
     pdf.set_text_color(50, 50, 50)
     for cert in result["recommendations"]["certifications"]:
-        pdf.multi_cell(0, 5, f"- {cert['name']} ({cert['source']}) - Importance: {cert['importance']}")
+        pdf.multi_cell(190, 5, f"- {cert['name']} ({cert['source']}) - Importance: {cert['importance']}")
     pdf.ln(5)
     
     # Projects
     pdf.set_font('Helvetica', 'B', 12)
     pdf.set_text_color(0, 139, 229)
-    pdf.cell(0, 8, "5. Recommended Portfolio Projects", 0, 1, 'L')
+    pdf.cell(190, 8, "5. Recommended Portfolio Projects", 0, 1, 'L')
     for proj in result["recommendations"]["projects"]:
         pdf.set_font('Helvetica', 'B', 10)
         pdf.set_text_color(50, 50, 50)
-        pdf.multi_cell(0, 5, f"* {proj['title']}")
+        pdf.multi_cell(190, 5, f"* {proj['title']}")
         pdf.set_font('Helvetica', '', 9)
         pdf.set_text_color(80, 80, 80)
-        pdf.multi_cell(0, 5, f"  Description: {proj['description']}")
-        pdf.multi_cell(0, 5, f"  Technologies: {', '.join(proj['technologies_to_use'])}")
+        pdf.multi_cell(190, 5, f"  Description: {proj['description']}")
+        pdf.multi_cell(190, 5, f"  Technologies: {', '.join(proj['technologies_to_use'])}")
         pdf.ln(2)
     pdf.ln(3)
     
     # Roadmap
     pdf.set_font('Helvetica', 'B', 12)
     pdf.set_text_color(0, 139, 229)
-    pdf.cell(0, 8, "6. Personalized 6-Month Roadmap", 0, 1, 'L')
+    pdf.cell(190, 8, "6. Personalized 6-Month Roadmap", 0, 1, 'L')
     for phase in result["roadmap"]:
         pdf.set_font('Helvetica', 'B', 10)
         pdf.set_text_color(0, 139, 229)
-        pdf.cell(0, 6, f"{phase['month']} - Focus: {phase['focus']}", 0, 1, 'L')
+        pdf.cell(190, 6, f"{phase['month']} - Focus: {phase['focus']}", 0, 1, 'L')
         pdf.set_font('Helvetica', '', 9)
         pdf.set_text_color(50, 50, 50)
         for task in phase["tasks"]:
-            pdf.multi_cell(0, 5, f"  [ ] {task}")
+            pdf.multi_cell(190, 5, f"  [ ] {task}")
         pdf.set_font('Helvetica', 'I', 9)
         pdf.set_text_color(100, 100, 100)
-        pdf.multi_cell(0, 5, f"  Milestone: {phase['milestone']}")
+        pdf.multi_cell(190, 5, f"  Milestone: {phase['milestone']}")
         pdf.ln(3)
 
     return bytes(pdf.output())

@@ -2,6 +2,11 @@
 
 This project is an AI-powered Career Coach web application that compares a PDF resume against a target job role to perform a detailed skill gap analysis and generates a personalized step-by-step 6-month career roadmap.
 
+## Live Demo
+
+- **Frontend Application (Streamlit)**: [resumeparse9.streamlit.app](https://resumeparse9.streamlit.app/)
+- **Backend API (FastAPI on Vercel)**: [resume-parser-career-road-map.vercel.app](https://resume-parser-career-road-map.vercel.app/) (API docs available at [/docs](https://resume-parser-career-road-map.vercel.app/docs))
+
 ## Screenshots
 
 ### 1. Dashboard & Resume Upload

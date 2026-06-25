@@ -253,6 +253,10 @@ st.markdown(
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
+    /* Force nested elements (like paragraphs or icons) inside buttons to be dark for high contrast */
+    div.stButton > button *, div.stDownloadButton > button * {
+        color: #070b13 !important;
+    }
     div.stButton > button:hover, div.stDownloadButton > button:hover {
         box-shadow: 0 0 22px rgba(0, 242, 254, 0.5) !important;
         transform: translateY(-2px) !important;
